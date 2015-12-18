@@ -7,6 +7,7 @@ def customAction(packet):
 	global packetCount
 	global message 
 	global messageend
+	characterlist = []
 	#print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
@@ -21,12 +22,13 @@ def customAction(packet):
 	if(messageend == True and suffixnum == 23130):
 		message = False
 		packetCount = 0
+		print characterlist
 		#print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
 	if(message == True):
-		return "! " + character + " !"
+		characterlist.append(character)
 		packetCount += 1
 
 sniff(filter="port 137", prn=customAction)
