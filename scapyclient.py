@@ -13,6 +13,7 @@ def customAction(packet):
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
 		message = True
+		messageend = False
 	if(suffixnum == 23130):
 		messageend = True
 	if(messageend == True and suffixnum == 23130):
