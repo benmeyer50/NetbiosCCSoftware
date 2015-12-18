@@ -18,7 +18,6 @@ def customAction(packet):
 		messageend = False
 		#print messageend
 		packetCount += 1
-		characterlist = []
 	if(suffixnum == 23130 and packetCount > 1):
 		messageend = True
 		#print messageend
@@ -27,6 +26,7 @@ def customAction(packet):
 		packetCount = 0
 		characterlist = characterlist[1:]
 		print characterlist
+		characterlist = []
 		#print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
