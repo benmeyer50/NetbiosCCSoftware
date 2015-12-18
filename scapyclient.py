@@ -23,6 +23,7 @@ def customAction(packet):
 		#print messageend
 	if(messageend == True and suffixnum == 23130):
 		message = False
+		messageend = False
 		packetCount = 0
 		characterlist = characterlist[1:]
 		print characterlist
