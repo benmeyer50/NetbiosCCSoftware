@@ -1,6 +1,8 @@
 from scapy.all import *
 
 packetCount = 0
+message = False
+messageend = False
 
 def customAction(packet):
 	global packetCount
@@ -10,7 +12,7 @@ def customAction(packet):
 	if(suffixnum == 23130):
 		message = True
 	if(suffixnum == 23130):
-		messageend1 = True
+		messageend = True
 	if(messageend1 and suffixnum == 23130):
 		message = False
 	asciivalue = hex(suffixnum)[4:]
