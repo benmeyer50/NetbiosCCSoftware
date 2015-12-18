@@ -7,7 +7,6 @@ def customAction(packet):
 	global packetCount
 	global message 
 	global messageend
-	packetCount += 1
 	print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
@@ -15,11 +14,13 @@ def customAction(packet):
 		print message
 		messageend = False
 		print messageend
-	if(suffixnum == 23130):
+		packetCount += 1
+	if(suffixnum == 23130 and packetCount >= 1):
 		messageend = True
 		print messageend
 	if(messageend == True and suffixnum == 23130):
 		message = False
+		packetCount = 0
 		print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
