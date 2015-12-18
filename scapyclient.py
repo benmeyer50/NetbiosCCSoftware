@@ -1,20 +1,22 @@
 from scapy.all import *
 
 packetCount = 0
-global message = False
-global messageend = False
+message = False
+messageend = False
 
 def customAction(packet):
 	global packetCount
+	global message 
+	global messageend
 	packetCount += 1
 	print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
-		global message = True
+		message = True
 	if(suffixnum == 23130):
-		global messageend = True
+		messageend = True
 	if(messageend == True and suffixnum == 23130):
-		global message = False
+		message = False
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
