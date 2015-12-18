@@ -29,7 +29,7 @@ def customAction(packet):
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
-	if(message == True):
+	if(message == True and packetCount == 1):
 		characterlist.append(character)
 		packetCount += 1
 
