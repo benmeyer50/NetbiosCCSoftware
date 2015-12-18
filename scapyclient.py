@@ -18,6 +18,7 @@ def customAction(packet):
 		messageend = False
 		#print messageend
 		packetCount += 1
+		characterlist = []
 	elif(suffixnum == 23130 and packetCount > 1):
 		messageend = True
 		#print messageend
