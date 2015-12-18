@@ -7,7 +7,7 @@ def customAction(packet):
 	global packetCount
 	global message 
 	global messageend
-	print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
+	#print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
 		message = True
