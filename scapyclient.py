@@ -12,7 +12,7 @@ def customAction(packet):
 	global characterlist
 	#print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
-	if(suffixnum == 23130):
+	if(suffixnum == 23130 and message == False):
 		message = True
 		#print message
 		messageend = False
