@@ -26,8 +26,9 @@ def customAction(packet):
 		messageend = False
 		packetCount = 0
 		characterlist = characterlist[1:]
-		print characterlist
-		characterlist = []
+		if(len(characterlist) > 0):
+			print characterlist
+			characterlist = []
 		#print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
