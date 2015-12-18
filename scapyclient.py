@@ -16,7 +16,7 @@ def customAction(packet):
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
-		if(message):
-			return "! " + character + " !"
+	if(message):
+		return "! " + character + " !"
 
 sniff(filter="port 137", prn=customAction)
