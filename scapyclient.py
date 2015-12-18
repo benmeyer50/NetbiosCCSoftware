@@ -1,8 +1,8 @@
 from scapy.all import *
 
 packetCount = 0
-message = False
-messageend = False
+global message = False
+global messageend = False
 
 def customAction(packet):
 	global packetCount
