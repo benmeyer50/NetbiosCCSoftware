@@ -24,12 +24,13 @@ def customAction(packet):
 	if(messageend == True and suffixnum == 23130):
 		message = False
 		packetCount = 0
+		characterlist = characterlist[1:]
 		print characterlist
 		#print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
-	if(message == True and packetCount != 1):
+	if(message == True):
 		characterlist.append(character)
 		packetCount += 1
 
