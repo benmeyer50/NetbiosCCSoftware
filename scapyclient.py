@@ -3,11 +3,13 @@ from scapy.all import *
 packetCount = 0
 message = False
 messageend = False
+characterlist = []
+
 def customAction(packet):
 	global packetCount
 	global message 
 	global messageend
-	characterlist = []
+	global characterlist
 	#print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
