@@ -14,7 +14,7 @@ def customAction(packet):
 		message = True
 		print message
 		messageend = False
-		print message end
+		print messageend
 	if(suffixnum == 23130):
 		messageend = True
 		print messageend
