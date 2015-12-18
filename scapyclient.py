@@ -12,11 +12,15 @@ def customAction(packet):
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
 		message = True
+		print message
 		messageend = False
+		print message end
 	if(suffixnum == 23130):
 		messageend = True
+		print messageend
 	if(messageend == True and suffixnum == 23130):
 		message = False
+		print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
