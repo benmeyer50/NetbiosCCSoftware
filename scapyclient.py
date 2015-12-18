@@ -1,15 +1,40 @@
 from scapy.all import *
 
 packetCount = 0
+message = False
+messageend = False
+characterlist = []
 
 def customAction(packet):
 	global packetCount
-	packetCount += 1
-	print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
+	global message 
+	global messageend
+	global characterlist
+	#print "Packet #" + str(packetCount) + ": " +packet[0][1].src + "==>" + packet[0][1].dst + ": " + str(packet[0].SUFFIX)
 	suffixnum = packet[0].SUFFIX
-	asciivalue = suffixnum - 16705
+	if(suffixnum == 23130 and message == False):
+		message = True
+		#print message
+		messageend = False
+		#print messageend
+		packetCount += 1
+	if(suffixnum == 23130 and packetCount > 1):
+		messageend = True
+		#print messageend
+	if(messageend == True and suffixnum == 23130):
+		message = False
+		messageend = False
+		packetCount = 0
+		characterlist = characterlist[1:]
+		if(len(characterlist) > 0):
+			print characterlist
+			characterlist = []
+		#print message
+	asciivalue = hex(suffixnum)[4:]
+	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
-	return "! " + character + " !"
-
+	if(message == True):
+		characterlist.append(character)
+		packetCount += 1
 
 sniff(filter="port 137", prn=customAction)
