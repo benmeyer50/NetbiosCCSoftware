@@ -11,21 +11,22 @@ def customAction(packet):
 	suffixnum = packet[0].SUFFIX
 	if(suffixnum == 23130):
 		message = True
-		print message
+		#print message
 		messageend = False
-		print messageend
+		#print messageend
 		packetCount += 1
-	if(suffixnum == 23130 and packetCount >= 1):
+	if(suffixnum == 23130 and packetCount > 1):
 		messageend = True
-		print messageend
+		#print messageend
 	if(messageend == True and suffixnum == 23130):
 		message = False
 		packetCount = 0
-		print message
+		#print message
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
 	character = chr(asciivalue)
 	if(message == True):
 		return "! " + character + " !"
+		packetCount += 1
 
 sniff(filter="port 137", prn=customAction)
