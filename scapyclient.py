@@ -13,7 +13,7 @@ def customAction(packet):
 		message = True
 	if(suffixnum == 23130):
 		messageend = True
-	if(messageend1 and suffixnum == 23130):
+	if(messageend and suffixnum == 23130):
 		message = False
 	asciivalue = hex(suffixnum)[4:]
 	asciivalue = int(asciivalue, 16)
